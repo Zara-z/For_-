@@ -1,0 +1,104 @@
+void setup()
+{
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  Serial.begin(9600);
+}
+int income=0;
+void loop()
+{
+  
+  if (Serial.available()>0)
+  {
+    income=Serial.read();
+    switch(income)
+    {
+      case 'f':
+      	forward();
+      	break;
+      case 'b':
+		back();
+      	break;
+      case 'r':
+      	right();
+      	break;
+      case 'l':
+      	left();
+      	break;
+      default:
+      	stop();
+        break;
+      	
+    }
+  }
+}
+void forward()					#前进第一指示灯和第二指示灯均亮起
+{
+  digitalWrite(6,HIGH);
+  digitalWrite(5,LOW);
+  digitalWrite(9,HIGH);
+  digitalWrite(10,LOW);
+  if (1==1)
+  {
+    digitalWrite(12,LOW);
+  	digitalWrite(13,LOW);
+    delay(500);
+  }
+  
+}
+void right()						#右转第一指示灯（右）亮起
+{
+  digitalWrite(5,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(9,HIGH);
+  digitalWrite(10,LOW);
+  if (1==1)
+  {
+    digitalWrite(12,LOW);
+  	digitalWrite(13,LOW);
+    delay(500);
+  }
+}
+void left()						#左转第二指示灯（左）亮起
+{
+  digitalWrite(6,HIGH);
+  digitalWrite(5,LOW);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  if (1==1)
+  {
+    digitalWrite(12,LOW);
+  	digitalWrite(13,LOW);
+    delay(500);
+  }
+}
+void back()							#后退第一指示灯和第二指示灯均熄灭
+{
+  digitalWrite(5,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(10,HIGH);
+  digitalWrite(9,LOW);
+  if (1==1)
+  {
+    digitalWrite(12,LOW);
+  	digitalWrite(13,LOW);
+    delay(500);
+  }
+}
+void stop()							#停止第一指示灯和第二指示灯熄灭
+{
+  digitalWrite(5,LOW);
+  digitalWrite(6,LOW);
+  digitalWrite(9,LOW);
+  digitalWrite(10,LOW);
+  if (1==1)							#第三指示灯亮起
+  {
+    digitalWrite(12,HIGH);
+  	digitalWrite(13,LOW);
+    delay(500);
+  }
+}
