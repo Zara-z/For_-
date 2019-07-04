@@ -76,7 +76,7 @@ void left()						#左转第二指示灯（左）亮起
     delay(500);
   }
 }
-void back()							#后退第一指示灯和第二指示灯均熄灭
+void back()						#后退第一指示灯和第二指示灯均熄灭
 {
   digitalWrite(5,HIGH);
   digitalWrite(6,LOW);
@@ -89,13 +89,13 @@ void back()							#后退第一指示灯和第二指示灯均熄灭
     delay(500);
   }
 }
-void stop()							#停止第一指示灯和第二指示灯熄灭
+void stop()						#停止第一指示灯和第二指示灯熄灭
 {
   digitalWrite(5,LOW);
   digitalWrite(6,LOW);
   digitalWrite(9,LOW);
   digitalWrite(10,LOW);
-  if (1==1)							#第三指示灯亮起
+  if (1==1)						#第三指示灯闪烁
   {
     digitalWrite(12,HIGH);
   	digitalWrite(13,LOW);
